@@ -5,7 +5,8 @@
   <style type="text/css">
     body {
       width: 384px;
-      padding: 0px;
+      border:0;
+      padding: 0;
       margin: 20px;
       text-align: center;
     }
@@ -19,7 +20,10 @@
 </head>
 <body>
   <h1>Lear Nonsense</h1>
-  <p><%=nonsense.prose %></p>
+  <img src="/<%=week %>.png"/>
+  <p>
+    <% nonsense.prose.forEach(function(prose){ %><%= prose %></br><% }) %>
+  </p>
   <hr/>
 </body>
 </html>
