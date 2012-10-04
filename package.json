@@ -19,8 +19,16 @@
         "express": "3.0.0rc3",
         "littleprinter": "x.x.x"
     },
-     "engines": {
-        "node": "0.8.x",
-        "npm":  "1.1.x"
-      }
+    "devDependencies": {
+        "mocha": "1.4.2",
+        "sinon": "1.4.2"
+    },
+    "main": "./lib/server",
+    "scripts": {
+        "test": "mocha test/*_test.js --reporter spec"
+    },
+    "engines": {
+       "node": "0.8.x",
+       "npm":  "1.1.x"
+    }
 }
