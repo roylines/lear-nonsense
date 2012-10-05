@@ -3,8 +3,8 @@ var assert = require('assert'),
       handler = require('../lib/handler.js'),
       lear = require('../lib/lear.js');
 
-describe('handler', function() {
-  describe('meta', function() {
+describe('when using handler', function() {
+  describe('and calling meta', function() {
     it('should set owner_email', function() {
       assert.equal(handler.meta.owner_email, 'roy@roylines.co.uk');
     });
@@ -33,7 +33,7 @@ describe('handler', function() {
       assert.equal(handler.meta.send_delivery_count, true);
     });
   });
-  describe('edition',  function() {
+  describe('and calling edition',  function() {
     beforeEach( function() {
       sinon.stub(lear, 'getNonsense');
     });
@@ -78,7 +78,7 @@ describe('handler', function() {
       });
     });
   });
-  describe('sample', function(){
+  describe('and calling sample', function(){
      beforeEach( function() {
       sinon.stub(handler, 'edition');
     });
