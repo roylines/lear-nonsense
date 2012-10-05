@@ -7,10 +7,10 @@ describe('when using lear', function() {
   describe('for real', function() {
     describe('calling getNonsense', function() {
       it('should not error', function(done) {
-        lear.getNonsense(1, done);
+        lear.getNonsense(0, done);
       });
       it('should return prose', function(done) {
-        lear.getNonsense(1, function(e, prose) {
+        lear.getNonsense(0, function(e, prose) {
           assert.deepEqual(prose, {"prose":["The Absolutely Abstemious Ass,","who resided in a Barrel,","and only lived on","Soda Water and Pickled Cucumbers."]});
           done();
         });
@@ -46,27 +46,20 @@ describe('when using lear', function() {
             done();
           });
         });
-        it('and deliveryCount is null should look for 0.txt', function(done) {
-          lear.getNonsense(null, function(e, prose) {
-            assert(fs.readFile.calledOnce);
-            assert.equal(fs.readFile.args[0][0], 'nonsense/0.txt');
-            done();
-          });
-        });
-        it('and deliveryCount is 1 should look for 1.txt', function(done) {
+        it('should look for 1.txt if index is 1', function(done) {
           lear.getNonsense(1, function(e, prose) {
             assert(fs.readFile.calledOnce);
             assert.equal(fs.readFile.args[0][0], 'nonsense/1.txt');
             done();
           });
         });
-        // it('and deliveryCount is 2 should look for 1.txt', function(done) {
-        //   lear.getNonsense(2, function(e, prose) {
-        //     assert(fs.readFile.calledOnce);
-        //     assert.equal(fs.readFile.args[0][0], 'nonsense/1.txt');
-        //     done();
-        //   });
-        // });
+        it('should look for 42.txt if index is 42', function(done) {
+          lear.getNonsense(42, function(e, prose) {
+            assert(fs.readFile.calledOnce);
+            assert.equal(fs.readFile.args[0][0], 'nonsense/42.txt');
+            done();
+          });
+        });
       });
     });
   });

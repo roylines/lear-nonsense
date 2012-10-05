@@ -33,11 +33,24 @@ describe('when using handler', function() {
       assert.equal(handler.meta.send_delivery_count, true);
     });
   });
+  describe('and calling getIndex', function() {
+    it('with null delivery count should return 0', function() {
+      assert.equal(handler.getIndex(null), 0);
+    });
+    it('with delivery count 1 should return 0', function() {
+      assert.equal(handler.getIndex(1), 0);
+    });
+    it('with delivery count 50 should return 49', function() {
+      assert.equal(handler.getIndex(50), 49);
+    });
+  });
   describe('and calling edition',  function() {
     beforeEach( function() {
+      sinon.stub(handler, 'getIndex').returns(42);
       sinon.stub(lear, 'getNonsense');
     });
     afterEach(function() {
+      handler.getIndex.restore();
       lear.getNonsense.restore();
     });
     it('should return correct data if getNonsense yields', function(done) {
@@ -46,7 +59,7 @@ describe('when using handler', function() {
         var expectedData = {
           view: 'nonsense',
           meta: {
-            week: 1,
+            index: 42,
             nonsense : {
               prose: 'PROSE'
             }
@@ -56,6 +69,14 @@ describe('when using handler', function() {
         done(e, data);
       });
     });
+    it('should call getIndex with deliveryCount', function(done) {
+      lear.getNonsense.yields();
+      handler.edition(null, 88, null, function(e, data) {
+        assert(handler.getIndex.calledOnce);
+        assert(handler.getIndex.withArgs(88).calledOnce);
+        done();
+      });
+    });
     it('should call getNonsense once', function(done) {
       lear.getNonsense.yields();
       handler.edition(null, 1, null, function(e, data) {
@@ -63,10 +84,10 @@ describe('when using handler', function() {
         done();
       });
     });
-     it('should call getNonsense passing delivery count', function(done) {
+     it('should call getNonsense passing index', function(done) {
       lear.getNonsense.yields();
-      handler.edition(null, 'DC', null, function(e, data) {
-        assert(lear.getNonsense.withArgs('DC').calledOnce);
+      handler.edition(null, 1, null, function(e, data) {
+        assert(lear.getNonsense.withArgs(42).calledOnce);
         done();
       });
     });
