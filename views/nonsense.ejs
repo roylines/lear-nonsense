@@ -2,29 +2,42 @@
 <html>
 <head>
   <title>Edition</title>
+  <link href='http://fonts.googleapis.com/css?family=Merienda+One' rel='stylesheet' type='text/css'>
   <style type="text/css">
     body {
       width: 384px;
       margin: 0;
       padding: 0;
-      padding-top: 10px;
       border: 0;
+      padding-top: 10px;
       text-align: center;
+      font-family: 'Merienda One', cursive;
     }
     h1 {
-      font-size: 35px;
+      margin:0;
+      padding:0;
+      font-size: 40px;
+      line-height: 40px;
+    }
+    h2 {
+      margin:0;
+      padding:0;
+      font-size: 20px;
     }
     p {
-      font-size: 18px;
+      font-size: 24px;
+    }
+    img {
+      margin-top: 20px;
+      max-width: 100%;
     }
   </style>
 </head>
 <body>
   <h1>Lear Nonsense</h1>
+  <h2>The Glorious Nonsense of Edward Lear</h2>
   <img src="/<%=index %>.png"/>
-  <p>
-    <% nonsense.prose.forEach(function(prose){ %><%= prose %><br/><% }) %>
-  </p>
-  <hr/>
+  <p><% nonsense.prose.forEach(function(prose){ %><%= prose %><br/><% }) %></p>
+  <p>*</p>
 </body>
 </html>
