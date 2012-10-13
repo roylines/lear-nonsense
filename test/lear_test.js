@@ -8,15 +8,25 @@ describe('when using lear', function() {
     it('should not error', function(done) {
       lear.getNonsense(0, done);
     });
-    it('should return prose for index 0', function(done) {
-      lear.getNonsense(0, function(e, prose) {
+    it('should return expected prose', function(done) {
+      lear.getNonsense(0, function(e, nonsense) {
         var expected = {
           letter: 'a',
           prose: ["The Absolutely Abstemious Ass,","who resided in a Barrel,","and only lived on","Soda Water and Pickled Cucumbers."]
         };
-        assert.deepEqual(prose, expected);
+        assert.deepEqual(nonsense, expected);
         done();
       });
     });
+  });
+  describe('calling getNonsense for index 60', function() {
+    // it('should not error', function(done) {
+    //   lear.getNonsense(60, done);
+    // });
+    // it('should return prose', function(done) {
+    //   lear.getNonsense(60, function(e, nonsense) {
+    //     assert(nonsense);
+    //   });
+    // });
   });
 });
