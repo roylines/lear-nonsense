@@ -20,13 +20,14 @@ describe('when using lear', function() {
     });
   });
   describe('calling getNonsense for index 60', function() {
-    // it('should not error', function(done) {
-    //   lear.getNonsense(60, done);
-    // });
-    // it('should return prose', function(done) {
-    //   lear.getNonsense(60, function(e, nonsense) {
-    //     assert(nonsense);
-    //   });
-    // });
+    it('should not error', function(done) {
+      lear.getNonsense(60, done);
+    });
+    it('should return prose', function(done) {
+      lear.getNonsense(60, function(e, nonsense) {
+        assert(nonsense);
+        done();
+      });
+    });
   });
 });
