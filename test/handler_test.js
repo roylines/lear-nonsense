@@ -37,11 +37,11 @@ describe('when using handler', function() {
     it('with null delivery count should return 0', function() {
       assert.equal(handler.getIndex(null), 0);
     });
-    it('with delivery count 1 should return 0', function() {
-      assert.equal(handler.getIndex(1), 0);
+    it('with delivery count 1 should return 1', function() {
+      assert.equal(handler.getIndex(1), 1);
     });
-    it('with delivery count 50 should return 49', function() {
-      assert.equal(handler.getIndex(50), 49);
+    it('with delivery count 50 should return 50', function() {
+      assert.equal(handler.getIndex(50), 50);
     });
   });
   describe('and calling edition',  function() {
