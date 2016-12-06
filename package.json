@@ -1,34 +1,36 @@
 {
-    "name": "learnonsense",
-    "description": "Lear",
-    "version": "0.0.1",
-    "licenses": [{
-        "type": "MIT",
-        "url": "https://github.com/roylines/lear-nonsense/raw/master/LICENSE"
-    }],
-    "author": {
-        "name": "Roy Lines",
-        "url": "roy@roylines.co.uk"
-    },
-    "repository": {
-        "type": "git",
-        "url": "http://github.com/roylines/lear-nonsense.git"
-    },
-    "dependencies": {
-        "ejs": "0.8.2",
-        "express": "3.0.0rc3",
-        "littleprinter": "x.x.x"
-    },
-    "devDependencies": {
-        "mocha": "1.4.2",
-        "sinon": "1.4.2"
-    },
-    "main": "./lib/server",
-    "scripts": {
-        "test": "mocha test/*_test.js --reporter spec"
-    },
-    "engines": {
-       "node": "0.8.x",
-       "npm":  "1.1.x"
+  "name": "learnonsense",
+  "description": "Lear",
+  "version": "0.0.1",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/roylines/lear-nonsense/raw/master/LICENSE"
     }
+  ],
+  "author": {
+    "name": "Roy Lines",
+    "url": "roy@roylines.co.uk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/roylines/lear-nonsense.git"
+  },
+  "dependencies": {
+    "ejs": "2.5.5",
+    "express": "3.0.0rc3",
+    "littleprinter": "x.x.x"
+  },
+  "devDependencies": {
+    "mocha": "1.4.2",
+    "sinon": "1.4.2"
+  },
+  "main": "./lib/server",
+  "scripts": {
+    "test": "mocha test/*_test.js --reporter spec"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  }
 }
